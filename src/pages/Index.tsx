@@ -68,11 +68,16 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24">
+      <section 
+        className="py-16 md:py-24 relative bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(230, 221, 255, 0.85) 0%, rgba(200, 185, 250, 0.75) 100%), url('https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bffce703-8fd7-42df-8b68-c9ca6f22c3f2.png')`
+        }}
+      >
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             <div className="space-y-6">
-              <div className="inline-block px-6 py-2 bg-secondary/60 rounded-full">
+              <div className="inline-block px-6 py-2 bg-white/60 backdrop-blur-sm rounded-full">
                 <span className="text-primary font-semibold text-sm tracking-wide uppercase">ГОСавтошкола</span>
               </div>
               
@@ -84,41 +89,22 @@ const Index = () => {
                 Автошкола, где понимают женщин
               </p>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-foreground/80 leading-relaxed">
                 Мягкий подход, чуткие инструкторы и 70 часов практики для уверенного вождения
               </p>
-              
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/5eceee30-a55a-4aef-866b-d92fe7b9ba6c.jpg" 
-                  alt="Девушка за рулем"
-                  className="rounded-2xl shadow-lg w-full h-56 object-cover"
-                />
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bd9dfef9-5309-493b-89f4-bc6233e44960.jpg" 
-                  alt="Уверенная водитель"
-                  className="rounded-2xl shadow-lg w-full h-56 object-cover"
-                />
-              </div>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 shadow-xl">
-              <img 
-                src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/28570d99-0612-4edf-ab01-55b67c60003a.jpg" 
-                alt="Счастливая девушка за рулем"
-                className="w-full h-48 object-cover rounded-2xl mb-6"
-              />
-              
-              <h2 className="text-3xl font-bold text-primary mb-2 text-center">
+            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl max-w-md mx-auto">
+              <h2 className="text-2xl font-bold text-primary mb-2 text-center">
                 Запишитесь на ЛЕДИ ДРАЙВ
               </h2>
-              <p className="text-muted-foreground text-center mb-6">
+              <p className="text-muted-foreground text-center mb-5 text-sm">
                 Оставьте заявку и мы свяжемся с вами в течение 15 минут
               </p>
               
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-1.5">
                     Ваше имя
                   </label>
                   <Input 
@@ -127,11 +113,11 @@ const Index = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    className="w-full h-12"
+                    className="w-full h-11 bg-white"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">
+                  <label className="block text-sm font-medium text-foreground mb-1.5">
                     Номер телефона
                   </label>
                   <Input 
@@ -140,17 +126,17 @@ const Index = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     required
-                    className="w-full h-12"
+                    className="w-full h-11 bg-white"
                   />
                 </div>
                 <Button 
                   type="submit"
                   size="lg" 
-                  className="w-full text-lg py-6 bg-primary hover:bg-primary/90"
+                  className="w-full text-base py-5 bg-primary hover:bg-primary/90"
                 >
                   Получить права красиво
                 </Button>
-                <p className="text-xs text-muted-foreground text-center">
+                <p className="text-xs text-muted-foreground text-center pt-1">
                   Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
                 </p>
               </form>
