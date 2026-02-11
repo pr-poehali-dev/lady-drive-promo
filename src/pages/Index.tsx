@@ -71,12 +71,12 @@ const Index = () => {
       <section 
         className="py-16 md:py-24 relative bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(230, 221, 255, 0.85) 0%, rgba(200, 185, 250, 0.75) 100%), url('https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bffce703-8fd7-42df-8b68-c9ca6f22c3f2.png')`
+          backgroundImage: `linear-gradient(135deg, rgba(230, 221, 255, 0.85) 0%, rgba(200, 185, 250, 0.75) 100%), url('https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/39891c07-b9a3-430f-ad03-ad9e6d294979.jpg')`
         }}
       >
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-            <div className="space-y-6">
+            <div className="space-y-6 animate-fade-in">
               <div className="inline-block px-6 py-2 bg-white/60 backdrop-blur-sm rounded-full">
                 <span className="text-primary font-semibold text-sm tracking-wide uppercase">ГОСавтошкола</span>
               </div>
@@ -94,7 +94,7 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl max-w-md mx-auto">
+            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-2xl max-w-md mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <h2 className="text-2xl font-bold text-primary mb-2 text-center">
                 Запишитесь на ЛЕДИ ДРАЙВ
               </h2>
