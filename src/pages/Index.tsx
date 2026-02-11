@@ -21,8 +21,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <Icon name="GraduationCap" size={28} className="text-primary" />
-              <span className="text-lg font-bold text-primary">ГОСавтошкола</span>
+              <img 
+                src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/2660c934-04f8-40fb-8a2e-62148dc8e5b1.png" 
+                alt="ГОСавтошкола" 
+                className="h-12 w-auto"
+              />
             </div>
             <div className="hidden md:flex items-center gap-6">
               <a 
@@ -66,34 +69,52 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section 
-        className="relative overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/files/92cf34c8-a5b8-4392-9b51-30748684d6b8.jpg)' }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+      <section className="relative overflow-hidden bg-gradient-to-br from-secondary/40 via-white to-secondary/20">
+        <div className="absolute inset-0">
+          <img 
+            src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/f183f550-fa61-4101-b1db-6ad789eabf3f.jpg" 
+            alt="Автопарк ГОСавтошколы" 
+            className="absolute top-0 right-0 w-1/3 h-full object-cover opacity-10"
+          />
+        </div>
         <div className="container mx-auto px-4 py-20 md:py-32 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in text-white">
-              <div className="inline-block mb-6 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full">
-                <span className="text-white font-semibold text-sm tracking-wide uppercase">ГОСавтошкола</span>
+            <div className="animate-fade-in">
+              <div className="inline-block mb-6 px-6 py-2 bg-secondary/60 backdrop-blur-sm rounded-full">
+                <span className="text-primary font-semibold text-sm tracking-wide uppercase">ГОСавтошкола</span>
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
                 ЛЕДИ ДРАЙВ
               </h1>
-              <p className="text-xl md:text-2xl mb-4 font-light">
+              <p className="text-xl md:text-2xl text-foreground mb-4 font-light">
                 Автошкола, где понимают женщин
               </p>
-              <p className="text-lg md:text-xl opacity-90 mb-10">
+              <p className="text-lg md:text-xl text-muted-foreground mb-10">
                 Мягкий подход, чуткие инструкторы и 70 часов практики для уверенного вождения
               </p>
               
-              <div 
-                className="hidden md:block w-64 h-64 rounded-2xl bg-cover bg-center shadow-2xl"
-                style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/files/395ddad7-ba00-4bb1-8f15-307cd29b66f7.jpg)' }}
-              ></div>
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <img 
+                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/5eceee30-a55a-4aef-866b-d92fe7b9ba6c.jpg" 
+                  alt="Девушка за рулем"
+                  className="rounded-2xl shadow-xl w-full h-48 object-cover"
+                />
+                <img 
+                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bd9dfef9-5309-493b-89f4-bc6233e44960.jpg" 
+                  alt="Уверенная водитель"
+                  className="rounded-2xl shadow-xl w-full h-48 object-cover"
+                />
+              </div>
             </div>
 
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
+            <div className="bg-white/98 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border-2 border-secondary/30">
+              <div className="mb-4">
+                <img 
+                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/28570d99-0612-4edf-ab01-55b67c60003a.jpg" 
+                  alt="Счастливая девушка за рулем"
+                  className="w-full h-40 object-cover rounded-xl mb-4"
+                />
+              </div>
               <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 text-center">
                 Запишитесь на ЛЕДИ ДРАЙВ
               </h2>
