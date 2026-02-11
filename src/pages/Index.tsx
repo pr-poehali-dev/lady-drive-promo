@@ -216,27 +216,13 @@ const Index = () => {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-              <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                  70 часов практики и<br />5 женских секретов мастерства
-                </h2>
-                <p className="text-lg text-foreground leading-relaxed">
-                  Выбирая «ЛЕДИ ДРАЙВ», вы получаете максимум «асфальтового времени». Никакой воды — только навыки, которые реально спасают каждый день.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/28570d99-0612-4edf-ab01-55b67c60003a.jpg" 
-                  alt="Счастливая девушка"
-                  className="rounded-2xl shadow-lg w-full h-48 object-cover"
-                />
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/f183f550-fa61-4101-b1db-6ad789eabf3f.jpg" 
-                  alt="Автопарк"
-                  className="rounded-2xl shadow-lg w-full h-48 object-cover"
-                />
-              </div>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+                70 часов практики и<br />5 женских секретов мастерства
+              </h2>
+              <p className="text-lg text-foreground leading-relaxed max-w-3xl mx-auto">
+                Выбирая «ЛЕДИ ДРАЙВ», вы получаете максимум «асфальтового времени». Никакой воды — только навыки, которые реально спасают каждый день.
+              </p>
             </div>
             
             <div className="bg-white rounded-3xl p-10 shadow-xl">
@@ -352,83 +338,45 @@ const Index = () => {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center flex-shrink-0">
-                    <Icon name="Video" size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-primary mb-2">Видеоуроки по вождению</h3>
-                    <p className="text-muted-foreground">Смотрите и повторяйте маневры в своем темпе</p>
-                  </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="Video" size={40} className="text-blue-600" />
                 </div>
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/5eceee30-a55a-4aef-866b-d92fe7b9ba6c.jpg" 
-                  alt="Обучение вождению"
-                  className="w-full h-32 object-cover rounded-xl"
-                />
+                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Видеоуроки по вождению</h3>
+                <p className="text-muted-foreground text-center">Смотрите и повторяйте маневры в своем темпе</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center flex-shrink-0">
-                    <Icon name="GraduationCap" size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-primary mb-2">Онлайн-курс «Вождение — это просто»</h3>
-                    <p className="text-muted-foreground">Теория без страха и сложных терминов</p>
-                  </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="GraduationCap" size={40} className="text-purple-600" />
                 </div>
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bd9dfef9-5309-493b-89f4-bc6233e44960.jpg" 
-                  alt="Онлайн обучение"
-                  className="w-full h-32 object-cover rounded-xl"
-                />
+                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Онлайн-курс «Вождение — это просто»</h3>
+                <p className="text-muted-foreground text-center">Теория без страха и сложных терминов</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center flex-shrink-0">
-                    <Icon name="ClipboardCheck" size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-primary mb-2">Онлайн-курс «Экзаменационный»</h3>
-                    <p className="text-muted-foreground">Готовьтесь к экзамену без стресса</p>
-                  </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="ClipboardCheck" size={40} className="text-indigo-600" />
                 </div>
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/28570d99-0612-4edf-ab01-55b67c60003a.jpg" 
-                  alt="Подготовка к экзамену"
-                  className="w-full h-32 object-cover rounded-xl"
-                />
+                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Онлайн-курс «Экзаменационный»</h3>
+                <p className="text-muted-foreground text-center">Готовьтесь к экзамену без стресса</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-secondary/50 flex items-center justify-center flex-shrink-0">
-                    <Icon name="Brain" size={24} className="text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-primary mb-2">Видеоуроки с психотерапевтом</h3>
-                    <p className="text-muted-foreground">Проработайте страхи и обретите уверенность</p>
-                  </div>
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="Brain" size={40} className="text-pink-600" />
                 </div>
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/f183f550-fa61-4101-b1db-6ad789eabf3f.jpg" 
-                  alt="Психологическая поддержка"
-                  className="w-full h-32 object-cover rounded-xl"
-                />
+                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Видеоуроки с психотерапевтом</h3>
+                <p className="text-muted-foreground text-center">Проработайте страхи и обретите уверенность</p>
               </div>
 
-              <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-6 shadow-lg border-2 border-accent/20 md:col-span-2">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0">
-                    <Icon name="Gift" size={24} className="text-accent" />
+              <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-8 shadow-lg border-2 border-accent/20 md:col-span-2">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center mb-6">
+                    <Icon name="Gift" size={40} className="text-orange-600" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-lg text-accent mb-2">Карта лояльности с подарками от партнёров</h3>
-                    <p className="text-muted-foreground">Приятные бонусы и скидки для наших автоледи</p>
-                  </div>
+                  <h3 className="font-semibold text-xl text-accent mb-3">Карта лояльности с подарками от партнёров</h3>
+                  <p className="text-muted-foreground">Приятные бонусы и скидки для наших автоледи</p>
                 </div>
               </div>
             </div>
