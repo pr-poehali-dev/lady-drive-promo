@@ -1,42 +1,143 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Заявка:", { name, phone });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-secondary/30">
       
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/20 to-accent/5"></div>
-        <div className="container mx-auto px-4 py-20 md:py-32 relative">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-block mb-6 px-6 py-2 bg-secondary/80 rounded-full">
-              <span className="text-primary font-semibold text-sm tracking-wide uppercase">ГОСавтошкола</span>
+      {/* Navigation */}
+      <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-2">
+              <Icon name="GraduationCap" size={28} className="text-primary" />
+              <span className="text-lg font-bold text-primary">ГОСавтошкола</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
-              ЛЕДИ ДРАЙВ
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4 font-light">
-              Автошкола, где понимают женщин
-            </p>
-            <p className="text-lg md:text-xl text-muted-foreground/80 mb-10 max-w-2xl mx-auto">
-              Мягкий подход, чуткие инструкторы и 70 часов практики для уверенного вождения
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="text-lg px-8 py-6 bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all"
+            <div className="hidden md:flex items-center gap-6">
+              <a 
+                href="https://автошкола92.рф/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors font-medium"
               >
-                Записаться на ЛЕДИ ДРАЙВ
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-6 border-2 border-primary text-primary hover:bg-primary/5"
+                Главная
+              </a>
+              <a 
+                href="https://автошкола92.рф/o-gosavtoshkole/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors font-medium"
               >
-                Узнать подробнее
-              </Button>
+                О ГОСавтошколе
+              </a>
+              <a 
+                href="https://автошкола92.рф/aktsii/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors font-medium"
+              >
+                Спецпредложения
+              </a>
+              <a 
+                href="https://автошкола92.рф/raspisanie/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors font-medium"
+              >
+                Расписание
+              </a>
+            </div>
+            <Button size="sm" className="hidden md:block">
+              Связаться
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section 
+        className="relative overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/files/92cf34c8-a5b8-4392-9b51-30748684d6b8.jpg)' }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent"></div>
+        <div className="container mx-auto px-4 py-20 md:py-32 relative">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in text-white">
+              <div className="inline-block mb-6 px-6 py-2 bg-white/20 backdrop-blur-sm rounded-full">
+                <span className="text-white font-semibold text-sm tracking-wide uppercase">ГОСавтошкола</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                ЛЕДИ ДРАЙВ
+              </h1>
+              <p className="text-xl md:text-2xl mb-4 font-light">
+                Автошкола, где понимают женщин
+              </p>
+              <p className="text-lg md:text-xl opacity-90 mb-10">
+                Мягкий подход, чуткие инструкторы и 70 часов практики для уверенного вождения
+              </p>
+              
+              <div 
+                className="hidden md:block w-64 h-64 rounded-2xl bg-cover bg-center shadow-2xl"
+                style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/files/395ddad7-ba00-4bb1-8f15-307cd29b66f7.jpg)' }}
+              ></div>
+            </div>
+
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 text-center">
+                Запишитесь на ЛЕДИ ДРАЙВ
+              </h2>
+              <p className="text-muted-foreground text-center mb-6">
+                Оставьте заявку и мы свяжемся с вами в течение 15 минут
+              </p>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Ваше имя
+                  </label>
+                  <Input 
+                    type="text"
+                    placeholder="Введите имя"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="w-full h-12 text-lg"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Номер телефона
+                  </label>
+                  <Input 
+                    type="tel"
+                    placeholder="+7 (___) ___-__-__"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    className="w-full h-12 text-lg"
+                  />
+                </div>
+                <Button 
+                  type="submit"
+                  size="lg" 
+                  className="w-full text-lg py-6 bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all"
+                >
+                  Получить права красиво
+                </Button>
+                <p className="text-xs text-muted-foreground text-center">
+                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                </p>
+              </form>
             </div>
           </div>
         </div>
