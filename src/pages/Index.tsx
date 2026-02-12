@@ -226,7 +226,7 @@ const Index = () => {
             </div>
             
             <div className="bg-white rounded-3xl p-10 shadow-xl">
-              <div className="space-y-5">
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -283,7 +283,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start p-5 bg-accent/5 rounded-xl border-2 border-accent/20">
+                <div className="flex gap-4 items-start p-5 bg-accent/5 rounded-xl border-2 border-accent/20 md:col-span-2">
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
                       <span className="font-bold">🔥</span>
@@ -297,7 +297,7 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="flex gap-4 items-start">
+                <div className="flex gap-4 items-start md:col-span-2">
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <span className="text-primary font-bold">✅</span>
