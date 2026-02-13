@@ -71,7 +71,7 @@ const Index = () => {
       <section 
         className="py-16 md:py-24 relative bg-cover bg-center"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(230, 221, 255, 0.85) 0%, rgba(200, 185, 250, 0.75) 100%), url('https://cdn.poehali.dev/files/1f2bf7d2-a5c9-4d2e-b365-e70b6d193a0b.jpg')`
+          backgroundImage: `linear-gradient(135deg, rgba(230, 221, 255, 0.85) 0%, rgba(200, 185, 250, 0.75) 100%), url('https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/files/41c67bf9-91de-42d4-aceb-cef970e95b14.jpg')`
         }}
       >
         <div className="container mx-auto px-4">
