@@ -34,8 +34,8 @@ const HeroSection = () => {
               Автошкола, где понимают женщин
             </p>
             
-            <p className="text-xl md:text-2xl text-foreground font-bold leading-relaxed mt-3 max-w-lg animate-fade-in drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)]">
-              Мягкий подход, чуткие инструкторы и 70 часов практики для уверенного вождения
+            <p className="text-base md:text-lg text-foreground font-semibold leading-relaxed mt-3 max-w-sm animate-fade-in drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)]">
+              Мягкий подход, чуткие инструкторы<br />и 70 часов практики для уверенного вождения
             </p>
           </div>
 

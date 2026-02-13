@@ -65,7 +65,7 @@ const Index = () => {
 
       <HeroSection />
       <CoursesSection onOpenModal={() => setModalOpen(true)} />
-      <CtaFooter />
+      <CtaFooter onOpenModal={() => setModalOpen(true)} />
       <ApplicationModal open={modalOpen} onOpenChange={setModalOpen} />
     </div>
   );

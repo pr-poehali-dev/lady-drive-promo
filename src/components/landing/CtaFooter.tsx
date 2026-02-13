@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
 
-const CtaFooter = () => {
+interface CtaFooterProps {
+  onOpenModal: () => void;
+}
+
+const CtaFooter = ({ onOpenModal }: CtaFooterProps) => {
   return (
     <>
       {/* Final CTA Section */}
@@ -18,21 +22,13 @@ const CtaFooter = () => {
                 <p className="text-lg mb-8 opacity-80">
                   Запишитесь сейчас и получите уверенность за рулем без стресса и криков
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    size="lg" 
-                    className="text-lg px-10 py-6 bg-white text-primary hover:bg-white/90"
-                  >
-                    Записаться на ЛЕДИ ДРАЙВ
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="text-lg px-10 py-6 border-2 border-white text-white hover:bg-white/10"
-                  >
-                    Задать вопрос
-                  </Button>
-                </div>
+                <Button 
+                  size="lg" 
+                  className="text-lg px-10 py-6 bg-white text-primary hover:bg-white/90"
+                  onClick={onOpenModal}
+                >
+                  Записаться на ЛЕДИ ДРАЙВ
+                </Button>
                 <p className="mt-6 text-sm opacity-70">
                   Первая консультация бесплатно • Гибкий график занятий • Рассрочка 0%
                 </p>
@@ -65,10 +61,8 @@ const CtaFooter = () => {
             />
             <h3 className="text-2xl font-bold mb-4">ГОСавтошкола</h3>
             <p className="text-white/70 mb-6">Тариф ЛЕДИ ДРАЙВ — автошкола, которая понимает женщин</p>
-            <div className="flex justify-center gap-6 text-white/60 text-sm">
-              <span>© 2024 ГОСавтошкола</span>
-              <span>•</span>
-              <span>Лицензия № XXXXX</span>
+            <div className="text-white/60 text-sm">
+              <span>© 2026 ГОСавтошкола</span>
             </div>
           </div>
         </div>
