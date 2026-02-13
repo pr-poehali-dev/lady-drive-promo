@@ -217,111 +217,121 @@ const Index = () => {
       </section>
 
       {/* 70 Hours Practice Section */}
-      <section className="py-16 md:py-20">
+      <section className="py-16 md:py-20 bg-primary">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 70 часов практики и<br />5 женских секретов мастерства
               </h2>
-              <p className="text-lg text-foreground leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
                 Выбирая «ЛЕДИ ДРАЙВ», вы получаете максимум «асфальтового времени». Никакой воды — только навыки, которые реально спасают каждый день.
               </p>
             </div>
             
-            <div className="bg-white rounded-3xl p-10 shadow-xl">
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4">
+              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold">✅</span>
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <span className="font-bold">✅</span>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">70 часов практики</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">70 часов практики</h3>
+                    <p className="text-white/70 leading-relaxed">
                       Золотой стандарт идеальной езды. Вы будете за рулем столько, сколько нужно именно вам.
                     </p>
                   </div>
                 </div>
+              </button>
 
+              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold">✅</span>
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <span className="font-bold">✅</span>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">Курс «Парковочный»</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Курс «Парковочный»</h3>
+                    <p className="text-white/70 leading-relaxed">
                       Как парковаться по-королевски? Легко! Научим ставить машину даже там, где, кажется, нет места.
                     </p>
                   </div>
                 </div>
+              </button>
 
+              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold">✅</span>
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <span className="font-bold">✅</span>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">Курс «Твой маршрут»</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Курс «Твой маршрут»</h3>
+                    <p className="text-white/70 leading-relaxed">
                       Готовимся возить «львят» на тренировки и в школу. Освоим ваши личные маршруты без стресса и спешки.
                     </p>
                   </div>
                 </div>
+              </button>
 
+              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold">✅</span>
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <span className="font-bold">✅</span>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">Хиты школы: «Магистральный» и «Экзаменационный»</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Хиты школы: «Магистральный» и «Экзаменационный»</h3>
+                    <p className="text-white/70 leading-relaxed">
                       Адаптированы специально для девушек. Спокойно, понятно, без криков.
                     </p>
                   </div>
                 </div>
+              </button>
 
-                <div className="flex gap-4 items-start p-5 bg-accent/5 rounded-xl border-2 border-accent/20 md:col-span-2">
+              <button className="bg-accent/90 hover:bg-accent backdrop-blur-sm border border-accent rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer md:col-span-2">
+                <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                       <span className="font-bold">🔥</span>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-accent mb-2">НОВИНКА: Курс «Кольца города»</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-semibold text-white mb-2">НОВИНКА: Курс «Кольца города»</h3>
+                    <p className="text-white/80 leading-relaxed">
                       Перестаньте бояться перекрестков с круговым движением. Научим проезжать их правильно и красиво.
                     </p>
                   </div>
                 </div>
+              </button>
 
-                <div className="flex gap-4 items-start md:col-span-2">
+              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer md:col-span-2">
+                <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-primary font-bold">✅</span>
+                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                      <span className="font-bold">✅</span>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">Габаритное вождение на вашей машине</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Габаритное вождение на вашей машине</h3>
+                    <p className="text-white/70 leading-relaxed">
                       Самый страшный этап — пересадка на личное авто. Мы будем рядом и после учебы, чтобы помочь «подружиться» с габаритами вашего железного коня.
                     </p>
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
 
             <div className="text-center mt-10">
-              <p className="text-lg text-muted-foreground mb-4">Всё ещё боитесь кольцевого?</p>
+              <p className="text-lg text-white/70 mb-4">Всё ещё боитесь кольцевого?</p>
               <Button 
                 size="lg" 
-                className="text-lg px-10 py-6 bg-accent hover:bg-accent/90"
+                className="text-lg px-10 py-6 bg-white text-primary hover:bg-white/90 font-bold"
               >
                 Получить права красиво
               </Button>
