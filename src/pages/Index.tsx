@@ -17,14 +17,14 @@ const Index = () => {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-2">
               <img 
-                src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/2660c934-04f8-40fb-8a2e-62148dc8e5b1.png" 
-                alt="ГОСавтошкола" 
+                src="https://cdn.poehali.dev/files/1b83d3e9-9b35-405b-b745-98a10d424894.png" 
+                alt="ГОСАШ Автошкола" 
                 className="h-12 w-auto"
               />
             </div>
             <div className="hidden md:flex items-center gap-6">
               <a 
-                href="https://автошкола92.рф/" 
+                href="https://автошкола82.рф/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors font-medium"
@@ -32,15 +32,15 @@ const Index = () => {
                 Главная
               </a>
               <a 
-                href="https://автошкола92.рф/o-gosavtoshkole/" 
+                href="https://автошкола82.рф/o-kompanii/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
-                О ГОСавтошколе
+                О ГОСАШ
               </a>
               <a 
-                href="https://автошкола92.рф/aktsii/" 
+                href="https://автошкола82.рф/aktsii/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors font-medium"
@@ -48,7 +48,7 @@ const Index = () => {
                 Спецпредложения
               </a>
               <a 
-                href="https://автошкола92.рф/raspisanie/" 
+                href="https://автошкола82.рф/raspisanie/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-foreground hover:text-primary transition-colors font-medium"

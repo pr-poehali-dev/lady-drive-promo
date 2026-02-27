@@ -5,6 +5,17 @@ interface CoursesSectionProps {
   onOpenModal: () => void;
 }
 
+const partners = [
+  { name: "Л'Этуаль", logo: "💄" },
+  { name: "Золото 585", logo: "💍" },
+  { name: "Суши Wok", logo: "🍱" },
+  { name: "Читай-город", logo: "📚" },
+  { name: "Sunlight", logo: "✨" },
+  { name: "DNS", logo: "💻" },
+  { name: "Спортмастер", logo: "🏋️" },
+  { name: "Gloria Jeans", logo: "👗" },
+];
+
 const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
   return (
     <>
@@ -21,8 +32,8 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Heart" size={32} className="text-primary" />
+                <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="Heart" size={32} className="text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-primary mb-4 text-center">
                   Боитесь строгих инструкторов?
@@ -38,8 +49,8 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Shield" size={32} className="text-primary" />
+                <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="Shield" size={32} className="text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-primary mb-4 text-center">
                   Не уверены в себе?
@@ -55,8 +66,8 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-16 h-16 rounded-full bg-secondary/50 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="CircleParking" size={32} className="text-primary" />
+                <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="CircleParking" size={32} className="text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-primary mb-4 text-center">
                   До сих пор паркуетесь с 15-й попытки?
@@ -153,16 +164,16 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
                 </div>
               </button>
 
-              <button className="bg-accent/90 hover:bg-accent backdrop-blur-sm border border-accent rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer md:col-span-2">
+              <button className="bg-secondary/80 hover:bg-secondary backdrop-blur-sm border border-secondary/60 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer md:col-span-2">
                 <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center">
                       <span className="font-bold">🔥</span>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">НОВИНКА: Курс «Кольца города»</h3>
-                    <p className="text-white/80 leading-relaxed">
+                    <h3 className="text-xl font-semibold text-primary mb-2">НОВИНКА: Курс «Кольца города»</h3>
+                    <p className="text-primary/70 leading-relaxed">
                       Перестаньте бояться перекрестков с круговым движением. Научим проезжать их правильно и красиво.
                     </p>
                   </div>
@@ -213,46 +224,71 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Video" size={40} className="text-blue-600" />
+                <div className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="Video" size={40} className="text-accent" />
                 </div>
                 <h3 className="font-semibold text-xl text-primary mb-3 text-center">Видеоуроки по вождению</h3>
                 <p className="text-muted-foreground text-center">Смотрите и повторяйте маневры в своем темпе</p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="GraduationCap" size={40} className="text-purple-600" />
+                <div className="w-20 h-20 rounded-2xl bg-secondary/40 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="GraduationCap" size={40} className="text-primary" />
                 </div>
                 <h3 className="font-semibold text-xl text-primary mb-3 text-center">Онлайн-курс «Вождение — это просто»</h3>
                 <p className="text-muted-foreground text-center">Теория без страха и сложных терминов</p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="ClipboardCheck" size={40} className="text-indigo-600" />
+                <div className="w-20 h-20 rounded-2xl bg-secondary/40 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="ClipboardCheck" size={40} className="text-primary" />
                 </div>
                 <h3 className="font-semibold text-xl text-primary mb-3 text-center">Онлайн-курс «Экзаменационный»</h3>
                 <p className="text-muted-foreground text-center">Готовьтесь к экзамену без стресса</p>
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Brain" size={40} className="text-pink-600" />
+                <div className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 mx-auto">
+                  <Icon name="Brain" size={40} className="text-accent" />
                 </div>
                 <h3 className="font-semibold text-xl text-primary mb-3 text-center">Видеоуроки с психотерапевтом</h3>
                 <p className="text-muted-foreground text-center">Проработайте страхи и обретите уверенность</p>
               </div>
 
-              <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl p-8 shadow-lg border-2 border-accent/20 md:col-span-2">
+              <div className="bg-gradient-to-br from-accent/10 to-secondary/20 rounded-2xl p-8 shadow-lg border-2 border-accent/20 md:col-span-2">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center mb-6">
-                    <Icon name="Gift" size={40} className="text-orange-600" />
+                  <div className="w-20 h-20 rounded-2xl bg-accent/15 flex items-center justify-center mb-6">
+                    <Icon name="Gift" size={40} className="text-accent" />
                   </div>
                   <h3 className="font-semibold text-xl text-accent mb-3">Карта лояльности с подарками от партнёров</h3>
                   <p className="text-muted-foreground">Приятные бонусы и скидки для наших автоледи</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-14 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-3">
+              Партнёры проекта
+            </h2>
+            <p className="text-center text-muted-foreground mb-10">
+              Специальные подарки для всех учениц курса ЛЕДИ ДРАЙВ
+            </p>
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              {partners.map((partner) => (
+                <div 
+                  key={partner.name}
+                  className="bg-white rounded-2xl px-6 py-4 shadow-md flex flex-col items-center gap-2 min-w-[110px] hover:shadow-lg transition-shadow"
+                >
+                  <span className="text-3xl">{partner.logo}</span>
+                  <span className="text-sm font-medium text-foreground/80 text-center">{partner.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
