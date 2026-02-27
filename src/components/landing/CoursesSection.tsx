@@ -6,14 +6,11 @@ interface CoursesSectionProps {
 }
 
 const partners = [
-  { name: "Л'Этуаль", logo: "💄" },
-  { name: "Золото 585", logo: "💍" },
-  { name: "Суши Wok", logo: "🍱" },
-  { name: "Читай-город", logo: "📚" },
-  { name: "Sunlight", logo: "✨" },
-  { name: "DNS", logo: "💻" },
-  { name: "Спортмастер", logo: "🏋️" },
-  { name: "Gloria Jeans", logo: "👗" },
+  { name: "АЗС ТЭС", logo: "⛽", url: "https://td-tes.com/" },
+  { name: "ТИТТО", logo: "🛍️", url: "https://tm-titto.ru/" },
+  { name: "Фитнес-центр G1", logo: "💪", url: "https://g1fit.ru/" },
+  { name: "Фотограф Люда Чалая", logo: "📸", url: "https://vk.ru/lyuchala" },
+  { name: "Dimergy", logo: "⚡", url: "https://dimergy.ru/" },
 ];
 
 const courses = [
@@ -371,13 +368,16 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
               {partners.map((partner) => (
-                <div
+                <a
                   key={partner.name}
-                  className="bg-white rounded-2xl px-6 py-4 shadow-md flex flex-col items-center gap-2 min-w-[110px] hover:shadow-xl hover:scale-110 transition-all duration-200"
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-2xl px-6 py-4 shadow-md flex flex-col items-center gap-2 min-w-[110px] hover:shadow-xl hover:scale-110 transition-all duration-200 no-underline"
                 >
                   <span className="text-3xl">{partner.logo}</span>
                   <span className="text-sm font-medium text-foreground/80 text-center">{partner.name}</span>
-                </div>
+                </a>
               ))}
             </div>
           </div>
