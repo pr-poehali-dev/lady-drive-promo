@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -25,6 +26,10 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
       await fetch(url.toString());
     } catch (err) { console.error(err); }
     setModalSent(true);
+    toast.success("Заявка принята!", {
+      description: "Менеджер свяжется с вами в ближайшее время",
+      duration: 5000,
+    });
     setTimeout(() => {
       onOpenChange(false);
       setModalSent(false);
