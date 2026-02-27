@@ -14,9 +14,16 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
   const [modalPhone, setModalPhone] = useState("");
   const [modalSent, setModalSent] = useState(false);
 
-  const handleModalSubmit = (e: React.FormEvent) => {
+  const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Заявка из модалки:", { name: modalName, phone: modalPhone });
+    const url = new URL("https://gosavtoschool.bitrix24.ru/rest/45768/9nij678yep7wc72c/crm.lead.add.json");
+    url.searchParams.set("FIELDS[STATUS_ID]", "NEW");
+    url.searchParams.set("FIELDS[NAME]", modalName);
+    url.searchParams.set("FIELDS[PHONE][0][VALUE]", modalPhone);
+    url.searchParams.set("FIELDS[PHONE][0][VALUE_TYPE]", "WORK");
+    try {
+      await fetch(url.toString());
+    } catch (err) { console.error(err); }
     setModalSent(true);
     setTimeout(() => {
       onOpenChange(false);
