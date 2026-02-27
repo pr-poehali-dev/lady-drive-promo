@@ -16,260 +16,347 @@ const partners = [
   { name: "Gloria Jeans", logo: "👗" },
 ];
 
+const courses = [
+  {
+    name: "Парковочный",
+    hours: "4 часа",
+    desc: "Научим ставить машину даже там, где, кажется, нет места. Параллельная, перпендикулярная, задним ходом — как королева парковки",
+    icon: "CircleParking",
+    badge: null,
+  },
+  {
+    name: "Магистральный",
+    hours: "4 часа",
+    desc: "Перестроения, скорости, трассы. Больше никакого страха перед оживлённым потоком",
+    icon: "Route",
+    badge: null,
+  },
+  {
+    name: "Кольца города",
+    hours: "4 часа",
+    desc: "Круговое движение в Симферополе (кольцо на Маршала Жукова, площадь Куйбышева и др.). Правильно, красиво, безопасно",
+    icon: "RefreshCw",
+    badge: null,
+  },
+  {
+    name: "Экзаменационный",
+    hours: "4 часа",
+    desc: "Отработка маршрутов ГИБДД Симферополя. Никаких сюрпризов на экзамене",
+    icon: "ClipboardCheck",
+    badge: "НОВИНКА",
+  },
+  {
+    name: "Пробный экзамен",
+    hours: "2 часа",
+    desc: "Репетиция с экзаменационной атмосферой",
+    icon: "GraduationCap",
+    badge: null,
+  },
+];
+
+const reasons = [
+  "70 часов практики — больше, чем в стандартном обучении",
+  "Топливо и страховка включены — никаких доплат",
+  "Инструкторы-женщины — понимаем с полуслова",
+  "Чуткие мужчины-профи — объясняют без криков",
+  "Спецкурсы для реальной жизни — парковка, кольца, магистрали",
+  "Занятия на KIA RIO — самые популярные авто в Крыму",
+  "Рассрочка без переплат — учитесь сейчас, платите потом",
+];
+
 const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
   return (
     <>
-      {/* Understanding Section */}
-      <section className="py-16 md:py-20">
+      {/* БЛОК 2: Тарифы */}
+      <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-4">
-              Мы понимаем ваши страхи
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-3">
+              Всё включено. Без доплат.
             </h2>
-            <p className="text-center text-muted-foreground text-lg mb-12">
-              И знаем, как с ними работать бережно и профессионально
+            <p className="text-center text-muted-foreground text-lg mb-10">
+              Один тариф — полная свобода выбора коробки передач
             </p>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Heart" size={32} className="text-accent" />
+
+            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+              <div className="bg-primary px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                  <div className="text-white/70 text-sm mb-1">МКПП или АКПП на выбор</div>
+                  <div className="text-white text-3xl md:text-4xl font-bold">89 900 ₽</div>
+                  <div className="text-white/80 mt-1">70 часов практики</div>
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-4 text-center">
-                  Боитесь строгих инструкторов?
-                </h3>
-                <p className="text-muted-foreground text-center leading-relaxed mb-4">
-                  С нами вы учитесь у инструкторов-женщин и самых чутких преподавателей-мужчин. Без криков, давления и стресса.
-                </p>
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/f183f550-fa61-4101-b1db-6ad789eabf3f.jpg" 
-                  alt="Автопарк"
-                  className="w-full h-32 object-cover rounded-xl"
-                />
+                <Button
+                  size="lg"
+                  className="bg-white text-primary hover:bg-white/90 font-bold px-8"
+                  onClick={onOpenModal}
+                >
+                  Записаться
+                </Button>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Shield" size={32} className="text-accent" />
+              <div className="p-8">
+                <h4 className="font-semibold text-primary mb-4 text-lg">В стоимость входит:</h4>
+                <div className="grid md:grid-cols-2 gap-3 mb-8">
+                  {[
+                    "Топливо на весь период обучения",
+                    "Страховка на время занятий",
+                    "Методические материалы",
+                    "Доступ к онлайн-платформе",
+                    "Личный кабинет ученицы",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <span className="text-green-500 text-lg">✅</span>
+                      <span className="text-foreground/80">{item}</span>
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-4 text-center">
-                  Не уверены в себе?
-                </h3>
-                <p className="text-muted-foreground text-center leading-relaxed mb-4">
-                  70 часов практики — столько, сколько нужно именно вам. Учимся в вашем темпе, пока не почувствуете уверенность.
-                </p>
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/5eceee30-a55a-4aef-866b-d92fe7b9ba6c.jpg" 
-                  alt="Девушка за рулем"
-                  className="w-full h-32 object-cover rounded-xl"
-                />
-              </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="CircleParking" size={32} className="text-accent" />
+                <div className="bg-secondary/20 rounded-2xl p-6">
+                  <h4 className="font-semibold text-primary mb-3">Рассрочка без переплат:</h4>
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    {["15 000 ₽", "25 000 ₽", "25 000 ₽", "24 900 ₽"].map((amount, i, arr) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <span className="bg-primary text-white font-bold rounded-xl px-4 py-2 text-sm">
+                          {amount}
+                        </span>
+                        {i < arr.length - 1 && (
+                          <Icon name="ArrowRight" size={16} className="text-primary/50" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm text-muted-foreground">Без переплат и скрытых комиссий</p>
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-4 text-center">
-                  До сих пор паркуетесь с 15-й попытки?
-                </h3>
-                <p className="text-muted-foreground text-center leading-relaxed mb-4">
-                  Специальный «Парковочный» курс научит ставить машину красиво и уверенно даже в самых узких местах.
-                </p>
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bd9dfef9-5309-493b-89f4-bc6233e44960.jpg" 
-                  alt="Уверенная водитель"
-                  className="w-full h-32 object-cover rounded-xl"
-                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 70 Hours Practice Section */}
+      {/* БЛОК 3: Автопарк */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-3">
+              Автопарк ЛЕДИ ДРАЙВ
+            </h2>
+            <p className="text-center text-muted-foreground text-lg mb-10">
+              Современные и безопасные автомобили для комфортного обучения
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <img
+                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/f183f550-fa61-4101-b1db-6ad789eabf3f.jpg"
+                  alt="KIA RIO автопарк"
+                  className="rounded-2xl shadow-lg w-full h-64 object-cover"
+                />
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-primary mb-2">KIA RIO</div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Автоматическая и механическая коробка на выбор. Современные, безопасные, комфортные.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white rounded-2xl p-5 shadow-md flex flex-col items-center gap-2">
+                    <Icon name="Settings" size={32} className="text-primary" />
+                    <span className="text-sm font-medium text-center">МКПП</span>
+                  </div>
+                  <div className="bg-white rounded-2xl p-5 shadow-md flex flex-col items-center gap-2">
+                    <Icon name="Gauge" size={32} className="text-primary" />
+                    <span className="text-sm font-medium text-center">АКПП</span>
+                  </div>
+                  <div className="bg-white rounded-2xl p-5 shadow-md flex flex-col items-center gap-2">
+                    <Icon name="Wind" size={32} className="text-accent" />
+                    <span className="text-sm font-medium text-center">Кондиционер</span>
+                  </div>
+                  <div className="bg-white rounded-2xl p-5 shadow-md flex flex-col items-center gap-2">
+                    <Icon name="Shield" size={32} className="text-accent" />
+                    <span className="text-sm font-medium text-center">Подушки безопасности</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* БЛОК 4: Инструкторы */}
       <section className="py-16 md:py-20 bg-primary">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                70 часов практики и<br />5 женских секретов мастерства
-              </h2>
-              <p className="text-lg text-white/80 leading-relaxed max-w-3xl mx-auto">
-                Выбирая «ЛЕДИ ДРАЙВ», вы получаете максимум «асфальтового времени». Никакой воды — только навыки, которые реально спасают каждый день.
-              </p>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-6">
+              Здесь не кричат. Здесь учат.
+            </h2>
+            <p className="text-center text-white/80 text-lg mb-10 max-w-3xl mx-auto leading-relaxed">
+              Для тарифа LADY DRIVE мы отобрали самых чутких инструкторов. Это женщины, которые понимают все страхи, и мужчины высшей категории, которые умеют объяснять спокойно и бережно.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center">
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Heart" size={32} className="text-white" />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">Инструкторы-женщины</h3>
+                <p className="text-white/70 text-sm">Понимаем с полуслова. Без осуждения и давления</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center">
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Award" size={32} className="text-white" />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">Мужчины высшей категории</h3>
+                <p className="text-white/70 text-sm">Объясняют чётко, спокойно и без криков</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center">
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Star" size={32} className="text-white" />
+                </div>
+                <h3 className="text-white font-semibold text-lg mb-2">Специальный отбор</h3>
+                <p className="text-white/70 text-sm">Только те, кто прошёл строгий отбор для тарифа ЛЕДИ ДРАЙВ</p>
+              </div>
             </div>
-            
-            <div className="grid md:grid-cols-2 gap-4">
-              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
-                <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <span className="font-bold">✅</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">70 часов практики</h3>
-                    <p className="text-white/70 leading-relaxed">
-                      Золотой стандарт идеальной езды. Вы будете за рулем столько, сколько нужно именно вам.
-                    </p>
-                  </div>
-                </div>
-              </button>
 
-              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
-                <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <span className="font-bold">✅</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Курс «Парковочный»</h3>
-                    <p className="text-white/70 leading-relaxed">
-                      Как парковаться по-королевски? Легко! Научим ставить машину даже там, где, кажется, нет места.
-                    </p>
-                  </div>
-                </div>
-              </button>
+            <div className="mt-8 grid md:grid-cols-2 gap-4">
+              <img
+                src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/5eceee30-a55a-4aef-866b-d92fe7b9ba6c.jpg"
+                alt="Инструктор"
+                className="rounded-2xl w-full h-48 object-cover opacity-90"
+              />
+              <img
+                src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bd9dfef9-5309-493b-89f4-bc6233e44960.jpg"
+                alt="Обучение вождению"
+                className="rounded-2xl w-full h-48 object-cover opacity-90"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
-                <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <span className="font-bold">✅</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Курс «Твой маршрут»</h3>
-                    <p className="text-white/70 leading-relaxed">
-                      Готовимся возить «львят» на тренировки и в школу. Освоим ваши личные маршруты без стресса и спешки.
-                    </p>
-                  </div>
-                </div>
-              </button>
+      {/* БЛОК 5: Спецкурсы */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-3">
+              5 женских секретов мастерства
+            </h2>
+            <p className="text-center text-muted-foreground text-lg mb-10">
+              Спецкурсы для реальной жизни — не для галочки
+            </p>
 
-              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer">
-                <div className="flex gap-4 items-start">
+            <div className="grid gap-4">
+              {courses.map((course) => (
+                <div
+                  key={course.name}
+                  className={`bg-white rounded-2xl p-6 shadow-md flex flex-col md:flex-row md:items-center gap-4 border-2 ${
+                    course.badge ? "border-accent/40" : "border-transparent"
+                  }`}
+                >
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <span className="font-bold">✅</span>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${course.badge ? "bg-accent/15" : "bg-primary/10"}`}>
+                      <Icon name={course.icon} size={28} className={course.badge ? "text-accent" : "text-primary"} />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Хиты школы: «Магистральный» и «Экзаменационный»</h3>
-                    <p className="text-white/70 leading-relaxed">
-                      Адаптированы специально для девушек. Спокойно, понятно, без криков.
-                    </p>
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center gap-2 mb-1">
+                      <h3 className="text-lg font-semibold text-primary">{course.name}</h3>
+                      {course.badge && (
+                        <span className="bg-accent text-white text-xs font-bold px-2 py-1 rounded-lg">
+                          {course.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{course.desc}</p>
                   </div>
-                </div>
-              </button>
-
-              <button className="bg-secondary/80 hover:bg-secondary backdrop-blur-sm border border-secondary/60 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer md:col-span-2">
-                <div className="flex gap-4 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-white/30 flex items-center justify-center">
-                      <span className="font-bold">🔥</span>
+                    <div className="bg-primary/10 text-primary font-bold rounded-xl px-4 py-2 text-sm whitespace-nowrap">
+                      {course.hours}
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">НОВИНКА: Курс «Кольца города»</h3>
-                    <p className="text-primary/70 leading-relaxed">
-                      Перестаньте бояться перекрестков с круговым движением. Научим проезжать их правильно и красиво.
-                    </p>
-                  </div>
                 </div>
-              </button>
-
-              <button className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-left transition-all duration-300 hover:scale-[1.02] hover:shadow-lg group cursor-pointer md:col-span-2">
-                <div className="flex gap-4 items-start">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                      <span className="font-bold">✅</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-secondary transition-colors">Габаритное вождение на вашей машине</h3>
-                    <p className="text-white/70 leading-relaxed">
-                      Самый страшный этап — пересадка на личное авто. Мы будем рядом и после учебы, чтобы помочь «подружиться» с габаритами вашего железного коня.
-                    </p>
-                  </div>
-                </div>
-              </button>
+              ))}
             </div>
 
             <div className="text-center mt-10">
-              <p className="text-lg text-white/70 mb-4">Всё ещё боитесь кольцевого?</p>
-              <Button 
-                size="lg" 
-                className="text-lg px-10 py-6 bg-white text-primary hover:bg-white/90 font-bold"
-                onClick={onOpenModal}
-              >
-                Получить права красиво
+              <Button size="lg" className="text-lg px-10 py-6 font-bold" onClick={onOpenModal}>
+                Хочу 5 секретов мастерства
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Online Bonuses Section */}
-      <section className="py-16 md:py-20">
+      {/* БЛОК 6: Видеобонусы */}
+      <section className="py-16 md:py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-4">
-              Онлайн-бонусы для вашего комфорта
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-3">
+              То, о чём не рассказывают на обычных уроках
             </h2>
-            <p className="text-center text-muted-foreground text-lg mb-12">
-              Учитесь не только за рулем, но и дома — в удобное время
+            <p className="text-center text-muted-foreground text-lg mb-10">
+              Видеобонусы от экспертов в подарок каждой ученице
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Video" size={40} className="text-accent" />
+              <div className="bg-primary rounded-2xl p-8 shadow-lg md:row-span-2">
+                <div className="w-16 h-16 rounded-2xl bg-white/15 flex items-center justify-center mb-5">
+                  <Icon name="Brain" size={32} className="text-white" />
                 </div>
-                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Видеоуроки по вождению</h3>
-                <p className="text-muted-foreground text-center">Смотрите и повторяйте маневры в своем темпе</p>
+                <h3 className="text-xl font-bold text-white mb-3">4 видеоурока от психолога</h3>
+                <p className="text-white/80 leading-relaxed">
+                  Как справиться со стрессом во время обучения и экзамена. Убираем страх, панику и неуверенность. Разбираем реальные ситуации и учимся сохранять спокойствие за рулём.
+                </p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-secondary/40 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="GraduationCap" size={40} className="text-primary" />
-                </div>
-                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Онлайн-курс «Вождение — это просто»</h3>
-                <p className="text-muted-foreground text-center">Теория без страха и сложных терминов</p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-secondary/40 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="ClipboardCheck" size={40} className="text-primary" />
-                </div>
-                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Онлайн-курс «Экзаменационный»</h3>
-                <p className="text-muted-foreground text-center">Готовьтесь к экзамену без стресса</p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-20 h-20 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 mx-auto">
-                  <Icon name="Brain" size={40} className="text-accent" />
-                </div>
-                <h3 className="font-semibold text-xl text-primary mb-3 text-center">Видеоуроки с психотерапевтом</h3>
-                <p className="text-muted-foreground text-center">Проработайте страхи и обретите уверенность</p>
-              </div>
-
-              <div className="bg-gradient-to-br from-accent/10 to-secondary/20 rounded-2xl p-8 shadow-lg border-2 border-accent/20 md:col-span-2">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-2xl bg-accent/15 flex items-center justify-center mb-6">
-                    <Icon name="Gift" size={40} className="text-accent" />
+              {[
+                { icon: "Car", text: "Оформление Европротокола и действия при ДТП" },
+                { icon: "PawPrint", text: "Перевозка животных в авто" },
+                { icon: "Baby", text: "Детская безопасность в машине" },
+                { icon: "Fuel", text: "Правила заправки автомобиля" },
+              ].map((item) => (
+                <div key={item.text} className="bg-white rounded-2xl p-6 shadow-md flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
+                    <Icon name={item.icon} size={24} className="text-accent" />
                   </div>
-                  <h3 className="font-semibold text-xl text-accent mb-3">Карта лояльности с подарками от партнёров</h3>
-                  <p className="text-muted-foreground">Приятные бонусы и скидки для наших автоледи</p>
+                  <p className="text-foreground/80 font-medium">{item.text}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Partners Section */}
+      {/* БЛОК 7: Почему выбирают LADY DRIVE */}
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-primary mb-3">
+              7 причин сказать «ДА» этому тарифу
+            </h2>
+            <p className="text-center text-muted-foreground text-lg mb-10">
+              Почему автоледи Крыма выбирают ЛЕДИ ДРАЙВ
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {reasons.map((reason, i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 shadow-md flex items-center gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
+                    {i + 1}
+                  </div>
+                  <p className="text-foreground/80">{reason}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Button size="lg" className="text-lg px-10 py-6 font-bold" onClick={onOpenModal}>
+                Хочу учиться в ЛЕДИ ДРАЙВ
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Партнёры */}
       <section className="py-14 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -281,7 +368,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
               {partners.map((partner) => (
-                <div 
+                <div
                   key={partner.name}
                   className="bg-white rounded-2xl px-6 py-4 shadow-md flex flex-col items-center gap-2 min-w-[110px] hover:shadow-lg transition-shadow"
                 >
