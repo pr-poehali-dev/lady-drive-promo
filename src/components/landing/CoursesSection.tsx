@@ -349,7 +349,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
 
             <div className="text-center mt-10">
               <Button size="lg" className="text-lg px-10 py-6 font-bold transition-transform duration-200 hover:scale-105 active:scale-95" onClick={onOpenModal}>
-                Хочу учиться в ЛЕДИ ДРАЙВ
+                Хочу учиться как Леди
               </Button>
             </div>
           </div>
