@@ -246,16 +246,11 @@ const CtaFooter = ({ onOpenModal }: CtaFooterProps) => {
                   Первая консультация бесплатно • Гибкий график занятий • Рассрочка 0%
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="flex justify-center">
                 <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/5eceee30-a55a-4aef-866b-d92fe7b9ba6c.jpg" 
-                  alt="Выпускница"
-                  className="rounded-2xl shadow-xl w-full h-48 object-cover"
-                />
-                <img 
-                  src="https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/bucket/bd9dfef9-5309-493b-89f4-bc6233e44960.jpg" 
-                  alt="Успешная водитель"
-                  className="rounded-2xl shadow-xl w-full h-48 object-cover"
+                  src="https://cdn.poehali.dev/files/ce7458d1-d573-4808-a8c0-24c0dcd4a4ac.png" 
+                  alt="Выпускница с правами"
+                  className="rounded-2xl shadow-xl w-full max-w-xs object-cover"
                 />
               </div>
             </div>
