@@ -189,7 +189,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
               Здесь не кричат. Здесь учат.
             </h2>
             <p className="text-center text-white/80 text-lg mb-10 max-w-3xl mx-auto leading-relaxed">
-              Для тарифа LADY DRIVE мы отобрали самых чутких инструкторов. Это женщины, которые понимают все страхи, и мужчины высшей категории, которые умеют объяснять спокойно и бережно.
+              Для тарифа Леди Драйв мы отобрали самых чутких инструкторов. Это женщины, которые понимают все страхи, и мужчины высшей категории, которые умеют объяснять спокойно и бережно.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -277,7 +277,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
             </div>
 
             <div className="text-center mt-10">
-              <Button size="lg" className="text-lg px-10 py-6 font-bold" onClick={onOpenModal}>
+              <Button size="lg" className="text-lg px-10 py-6 font-bold transition-transform duration-200 hover:scale-105 active:scale-95" onClick={onOpenModal}>
                 Хочу 5 секретов мастерства
               </Button>
             </div>
@@ -348,7 +348,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
             </div>
 
             <div className="text-center mt-10">
-              <Button size="lg" className="text-lg px-10 py-6 font-bold" onClick={onOpenModal}>
+              <Button size="lg" className="text-lg px-10 py-6 font-bold transition-transform duration-200 hover:scale-105 active:scale-95" onClick={onOpenModal}>
                 Хочу учиться в ЛЕДИ ДРАЙВ
               </Button>
             </div>
@@ -370,7 +370,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="bg-white rounded-2xl px-6 py-4 shadow-md flex flex-col items-center gap-2 min-w-[110px] hover:shadow-lg transition-shadow"
+                  className="bg-white rounded-2xl px-6 py-4 shadow-md flex flex-col items-center gap-2 min-w-[110px] hover:shadow-xl hover:scale-110 transition-all duration-200"
                 >
                   <span className="text-3xl">{partner.logo}</span>
                   <span className="text-sm font-medium text-foreground/80 text-center">{partner.name}</span>
