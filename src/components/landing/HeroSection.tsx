@@ -69,20 +69,16 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col md:block">
       {/* Баннер */}
-      <div
-        className="relative bg-cover bg-center bg-no-repeat min-h-[420px] md:min-h-[520px]"
-        style={{
-          backgroundImage: `url('https://cdn.poehali.dev/files/f2faac42-630b-4748-8a81-20935353a300.jpg')`
-        }}
-      >
+      <div className="relative">
+        <img
+          src="https://cdn.poehali.dev/files/f2faac42-630b-4748-8a81-20935353a300.jpg"
+          alt="Леди Драйв"
+          className="w-full object-contain block"
+        />
         <div className="absolute inset-0 bg-black/15" />
         {/* Форма поверх баннера — только на десктопе */}
-        <div className="hidden md:block container mx-auto px-4 relative z-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="pt-10 pb-10 md:pt-14 md:pb-14 flex">
-              {form}
-            </div>
-          </div>
+        <div className="hidden md:flex absolute inset-0 container mx-auto px-4 z-10 items-center">
+          {form}
         </div>
       </div>
 
