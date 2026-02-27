@@ -56,9 +56,17 @@ const Index = () => {
                 Расписание
               </a>
             </div>
-            <Button size="sm" className="hidden md:block" onClick={() => setModalOpen(true)}>
-              Связаться
-            </Button>
+            <div className="hidden md:flex items-center gap-3">
+              <a
+                href="tel:+79789921101"
+                className="text-primary font-semibold text-sm hover:text-primary/80 transition-colors"
+              >
+                8 (978) 992 11 01
+              </a>
+              <Button size="sm" onClick={() => setModalOpen(true)}>
+                Связаться
+              </Button>
+            </div>
           </div>
         </div>
       </nav>
