@@ -17,11 +17,27 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
 
   const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const pageParams = new URLSearchParams(window.location.search);
     const url = new URL("https://gosavtoschool.bitrix24.ru/rest/45768/9nij678yep7wc72c/crm.lead.add.json");
     url.searchParams.set("FIELDS[STATUS_ID]", "NEW");
     url.searchParams.set("FIELDS[NAME]", modalName);
     url.searchParams.set("FIELDS[PHONE][0][VALUE]", modalPhone);
     url.searchParams.set("FIELDS[PHONE][0][VALUE_TYPE]", "WORK");
+    url.searchParams.set("FIELDS[UF_CRM_1612510024]", "702");
+    url.searchParams.set("FIELDS[SOURCE_ID]", "11");
+    url.searchParams.set("FIELDS[UF_CRM_1611737507]", "646");
+    url.searchParams.set("FIELDS[TITLE]", `${modalName} ${modalPhone}`);
+    const utmFields: Record<string, string> = {
+      "FIELDS[UTM_SOURCE]": "utm_source",
+      "FIELDS[UTM_MEDIUM]": "utm_medium",
+      "FIELDS[UTM_CAMPAIGN]": "utm_campaign",
+      "FIELDS[UTM_CONTENT]": "utm_content",
+      "FIELDS[UTM_TERM]": "utm_term",
+    };
+    for (const [field, param] of Object.entries(utmFields)) {
+      const value = pageParams.get(param);
+      if (value) url.searchParams.set(field, value);
+    }
     try {
       await fetch(url.toString());
     } catch (err) { console.error(err); }
