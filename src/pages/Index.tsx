@@ -21,6 +21,13 @@ const Index = () => {
                 alt="ГОСАШ Автошкола" 
                 className="h-12 w-auto"
               />
+              <Button
+                size="sm"
+                className="md:hidden bg-primary hover:bg-primary/90 text-white text-xs px-3"
+                onClick={() => setModalOpen(true)}
+              >
+                Записаться
+              </Button>
             </div>
             <div className="hidden md:flex items-center gap-6">
               <a 
