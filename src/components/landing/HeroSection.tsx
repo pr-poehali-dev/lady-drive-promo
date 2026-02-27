@@ -23,9 +23,8 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto">
           <div className="pt-10 md:pt-16 pb-6 md:pb-8" />
 
-          <div className="pb-10 md:pb-16 grid lg:grid-cols-2 gap-8">
-            <div />
-            <div className="bg-white/85 backdrop-blur-md rounded-3xl p-6 shadow-2xl max-w-md mx-auto lg:mx-0 lg:ml-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="pb-10 md:pb-16 flex">
+            <div className="bg-white/85 backdrop-blur-md rounded-3xl p-6 shadow-2xl w-full max-w-md animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <h2 className="text-2xl font-bold text-primary mb-2 text-center">
                 Запишитесь на ЛЕДИ ДРАЙВ
               </h2>
