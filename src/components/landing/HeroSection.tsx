@@ -15,29 +15,13 @@ const HeroSection = () => {
     <section 
       className="relative bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('https://cdn.poehali.dev/projects/cdd4da42-d4b4-4f47-b7db-8d5d682d5928/files/3e1e0f14-9c6a-40c8-89ab-8ae9ba65a36c.jpg')`
+        backgroundImage: `url('https://cdn.poehali.dev/files/f2faac42-630b-4748-8a81-20935353a300.jpg')`
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/40 to-white/30" />
+      <div className="absolute inset-0 bg-black/10" />
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="pt-10 md:pt-16 pb-6 md:pb-8">
-            <div className="inline-block px-6 py-2 bg-white/70 backdrop-blur-sm rounded-full mb-4 animate-fade-in">
-              <span className="text-primary font-semibold text-sm tracking-wide uppercase">ГОСавтошкола</span>
-            </div>
-            
-            <h1 className="text-6xl md:text-8xl font-black text-primary leading-none tracking-tight animate-fade-in drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)]">
-              ЛЕДИ<br />ДРАЙВ
-            </h1>
-            
-            <p className="text-lg md:text-xl text-foreground/70 font-light mt-4 animate-fade-in drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)]">
-              Автошкола, где понимают женщин
-            </p>
-            
-            <p className="text-base md:text-lg text-foreground font-semibold leading-relaxed mt-3 max-w-sm animate-fade-in drop-shadow-[0_1px_4px_rgba(255,255,255,0.9)]">
-              Мягкий подход, чуткие инструкторы<br />и 70 часов практики для уверенного вождения
-            </p>
-          </div>
+          <div className="pt-10 md:pt-16 pb-6 md:pb-8" />
 
           <div className="pb-10 md:pb-16 grid lg:grid-cols-2 gap-8">
             <div />
