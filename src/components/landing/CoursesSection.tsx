@@ -113,14 +113,17 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
 
                 <div className="bg-secondary/20 rounded-2xl p-6">
                   <h4 className="font-semibold text-primary mb-3">Рассрочка без переплат:</h4>
-                  <div className="flex flex-col items-start gap-2 mb-3">
+                  <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-2 mb-3">
                     {["15 000 ₽", "25 000 ₽", "25 000 ₽", "24 900 ₽"].map((amount, i, arr) => (
-                      <div key={i} className="flex flex-col items-start gap-2">
+                      <div key={i} className="flex flex-col md:flex-row items-start md:items-center gap-2">
                         <span className="bg-primary text-white font-bold rounded-xl px-4 py-2 text-sm">
                           {amount}
                         </span>
                         {i < arr.length - 1 && (
-                          <Icon name="ArrowDown" size={16} className="text-primary/50 ml-3" />
+                          <>
+                            <Icon name="ArrowDown" size={16} className="text-primary/50 ml-3 md:hidden" />
+                            <Icon name="ArrowRight" size={16} className="text-primary/50 hidden md:block" />
+                          </>
                         )}
                       </div>
                     ))}
