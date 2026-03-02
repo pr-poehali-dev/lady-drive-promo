@@ -9,7 +9,7 @@ const partners = [
   { name: "АЗС ТЭС", img: "https://cdn.poehali.dev/files/0c68d9b3-9431-4818-a3a2-1412318ab4be.png", url: "https://td-tes.com/" },
   { name: "ТИТТО", img: "https://cdn.poehali.dev/files/cb727a35-cb2b-4a7e-8a52-199684f10815.PNG", url: "https://tm-titto.ru/" },
   { name: "Фитнес-центр G1", img: "https://cdn.poehali.dev/files/2187cffa-5999-4ff2-a90d-a2ca8f54dce3.PNG", url: "https://g1fit.ru/" },
-  { name: "Фотограф Люда Чалая", img: null, url: "https://vk.ru/lyuchala" },
+  { name: "Фотограф Люда Чалая", img: "https://cdn.poehali.dev/files/b029b2c5-02b2-4f21-8c07-166a01ae2769.png", url: "https://vk.ru/lyuchala" },
   { name: "Dimergy", img: "https://cdn.poehali.dev/files/135856e3-e4d2-47d2-97ac-c99b0d80c93c.png", url: "https://dimergy.ru/" },
 ];
 
