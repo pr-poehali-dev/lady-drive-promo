@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -6,6 +6,20 @@ import { toast } from "sonner";
 const HeroSection = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [opacity, setOpacity] = useState(1);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const height = sectionRef.current.offsetHeight;
+      const scrolled = window.scrollY;
+      const newOpacity = Math.max(0, 1 - scrolled / height);
+      setOpacity(newOpacity);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,11 +105,15 @@ const HeroSection = () => {
   );
 
   return (
-    <section className="flex flex-col md:block">
+    <section
+      ref={sectionRef}
+      className="flex flex-col md:block"
+      style={{ opacity, transition: "opacity 0.05s linear", pointerEvents: opacity === 0 ? "none" : "auto" }}
+    >
       {/* Баннер */}
       <div className="relative">
         <img
-          src="https://cdn.poehali.dev/files/f2faac42-630b-4748-8a81-20935353a300.jpg"
+          src="https://cdn.poehali.dev/files/59ce9226-c97d-4eda-abe7-791f0f1a4b37.jpg"
           alt="Леди Драйв"
           className="w-full object-contain block"
         />
