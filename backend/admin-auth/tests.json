@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {"name": "CORS preflight", "method": "OPTIONS", "path": "/", "expectedStatus": 200},
+    {"name": "Public SEO", "method": "GET", "path": "/?resource=public&action=seo", "expectedStatus": 200},
+    {"name": "Public robots", "method": "GET", "path": "/?resource=public&action=robots", "expectedStatus": 200},
+    {"name": "Public sitemap", "method": "GET", "path": "/?resource=public&action=sitemap", "expectedStatus": 200},
+    {"name": "Public content", "method": "GET", "path": "/?resource=public&action=content", "expectedStatus": 200},
+    {"name": "Login empty", "method": "POST", "path": "/?resource=auth&action=login", "body": {}, "expectedStatus": 400},
+    {"name": "Login bad", "method": "POST", "path": "/?resource=auth&action=login", "body": {"login": "nonexistent_user_xyz_qq", "password": "x"}, "expectedStatus": 401},
+    {"name": "Media auth required", "method": "GET", "path": "/?resource=media", "expectedStatus": 401}
+  ]
+}
