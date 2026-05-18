@@ -79,7 +79,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
               <div className="bg-primary px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
                   <div className="text-white/70 text-sm mb-1">МКПП или АКПП на выбор</div>
-                  <div className="text-white text-3xl md:text-4xl font-bold">89 900 ₽</div>
+                  <div className="text-white text-3xl md:text-4xl font-bold">85 900 ₽</div>
                   <div className="text-white/80 mt-1">70 часов практики</div>
                 </div>
                 <Button
@@ -111,7 +111,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
                 <div className="bg-secondary/20 rounded-2xl p-6">
                   <h4 className="font-semibold text-primary mb-3">Рассрочка без переплат:</h4>
                   <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-2 mb-3">
-                    {["15 000 ₽", "25 000 ₽", "25 000 ₽", "24 900 ₽"].map((amount, i, arr) => (
+                    {["15 000 ₽", "25 000 ₽", "25 000 ₽", "20 900 ₽"].map((amount, i, arr) => (
                       <div key={i} className="flex flex-col md:flex-row items-start md:items-center gap-2">
                         <span className="bg-primary text-white font-bold rounded-xl px-4 py-2 text-sm">
                           {amount}
