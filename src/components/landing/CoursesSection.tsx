@@ -1,17 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Icon from "@/components/ui/icon";
 
 interface CoursesSectionProps {
   onOpenModal: () => void;
 }
-
-const partners = [
-  { name: "АЗС ТЭС", img: "https://cdn.poehali.dev/files/0c68d9b3-9431-4818-a3a2-1412318ab4be.png", url: "https://td-tes.com/" },
-  { name: "ТИТТО", img: "https://cdn.poehali.dev/files/cb727a35-cb2b-4a7e-8a52-199684f10815.PNG", url: "https://tm-titto.ru/" },
-  { name: "Фитнес-центр G1", img: "https://cdn.poehali.dev/files/2187cffa-5999-4ff2-a90d-a2ca8f54dce3.PNG", url: "https://g1fit.ru/" },
-  { name: "Фотограф Люда Чалая", img: "https://cdn.poehali.dev/files/b029b2c5-02b2-4f21-8c07-166a01ae2769.png", url: "https://vk.ru/lyuchala" },
-  { name: "Dimergy", img: "https://cdn.poehali.dev/files/135856e3-e4d2-47d2-97ac-c99b0d80c93c.png", url: "https://dimergy.ru/" },
-];
 
 const courses = [
   {
@@ -52,7 +45,7 @@ const courses = [
 ];
 
 const reasons = [
-  "70 часов практики — больше, чем в стандартном обучении",
+  "Практика 72 ч. МКПП и 70 АКПП — больше, чем в стандартном обучении",
   "Топливо и страховка включены — никаких доплат",
   "Инструкторы-женщины — понимаем с полуслова",
   "Чуткие мужчины-профи — объясняют без криков",
@@ -62,6 +55,8 @@ const reasons = [
 ];
 
 const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
+  const [payMode, setPayMode] = useState<"parts" | "full">("parts");
+
   return (
     <>
       {/* БЛОК 2: Тарифы */}
@@ -80,7 +75,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
                 <div>
                   <div className="text-white/70 text-sm mb-1">МКПП или АКПП на выбор</div>
                   <div className="text-white text-3xl md:text-4xl font-bold">85 900 ₽</div>
-                  <div className="text-white/80 mt-1">70 часов практики</div>
+                  <div className="text-white/80 mt-1">Практика 72 ч. МКПП и 70 АКПП</div>
                 </div>
                 <Button
                   size="lg"
@@ -109,23 +104,46 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
                 </div>
 
                 <div className="bg-secondary/20 rounded-2xl p-6">
-                  <h4 className="font-semibold text-primary mb-3">Рассрочка без переплат:</h4>
-                  <div className="flex flex-col md:flex-row md:flex-wrap md:items-center gap-2 mb-3">
-                    {["15 000 ₽", "25 000 ₽", "25 000 ₽", "20 900 ₽"].map((amount, i, arr) => (
-                      <div key={i} className="flex flex-col md:flex-row items-start md:items-center gap-2">
-                        <span className="bg-primary text-white font-bold rounded-xl px-4 py-2 text-sm">
-                          {amount}
-                        </span>
-                        {i < arr.length - 1 && (
-                          <>
-                            <Icon name="ArrowDown" size={16} className="text-primary/50 ml-3 md:hidden" />
-                            <Icon name="ArrowRight" size={16} className="text-primary/50 hidden md:block" />
-                          </>
-                        )}
-                      </div>
-                    ))}
+                  <h4 className="font-semibold text-primary mb-4">Оплата обучения:</h4>
+
+                  <div className="inline-flex bg-muted rounded-full p-1 mb-5">
+                    <button
+                      type="button"
+                      onClick={() => setPayMode("parts")}
+                      className={`px-6 py-2 rounded-full text-sm font-semibold transition-colors ${
+                        payMode === "parts"
+                          ? "bg-accent text-white shadow"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      Частями
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPayMode("full")}
+                      className={`px-6 py-2 rounded-full text-sm font-semibold transition-colors ${
+                        payMode === "full"
+                          ? "bg-accent text-white shadow"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      Сразу
+                    </button>
                   </div>
-                  <p className="text-sm text-muted-foreground">Без переплат и скрытых комиссий</p>
+
+                  <div className="mb-2">
+                    {payMode === "parts" ? (
+                      <div className="text-3xl md:text-4xl font-bold text-primary">
+                        22 000 ₽<span className="text-lg font-semibold text-muted-foreground">/мес.</span>
+                      </div>
+                    ) : (
+                      <div className="text-3xl md:text-4xl font-bold text-primary">69 900 ₽</div>
+                    )}
+                  </div>
+
+                  <p className="text-sm text-muted-foreground">
+                    +20 000 ₽ ГСМ (топливо)
+                  </p>
                 </div>
               </div>
             </div>
@@ -351,42 +369,6 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
               <Button size="lg" className="text-lg px-10 py-6 font-bold transition-transform duration-200 hover:scale-105 active:scale-95" onClick={onOpenModal}>
                 Хочу учиться как Леди
               </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Партнёры */}
-      <section className="py-14 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-3">
-              Партнёры проекта
-            </h2>
-            <p className="text-center text-muted-foreground mb-10">
-              Специальные подарки для всех учениц курса ЛЕДИ ДРАЙВ
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
-              {partners.map((partner) => (
-                <a
-                  key={partner.name}
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white rounded-2xl px-6 py-4 shadow-md flex items-center justify-center hover:shadow-xl hover:scale-105 transition-all duration-200 no-underline"
-                  style={{ width: 160, height: 90 }}
-                >
-                  {partner.img ? (
-                    <img
-                      src={partner.img}
-                      alt={partner.name}
-                      className="max-w-full max-h-full object-contain"
-                    />
-                  ) : (
-                    <span className="text-sm font-medium text-foreground/80 text-center">{partner.name}</span>
-                  )}
-                </a>
-              ))}
             </div>
           </div>
         </div>
