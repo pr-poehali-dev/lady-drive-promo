@@ -5,8 +5,13 @@
     {"name": "Public robots", "method": "GET", "path": "/?resource=public&action=robots", "expectedStatus": 200},
     {"name": "Public sitemap", "method": "GET", "path": "/?resource=public&action=sitemap", "expectedStatus": 200},
     {"name": "Public content", "method": "GET", "path": "/?resource=public&action=content", "expectedStatus": 200},
+    {"name": "Public courses", "method": "GET", "path": "/?resource=public&action=courses", "expectedStatus": 200},
+    {"name": "Lead no phone", "method": "POST", "path": "/?resource=public&action=lead", "body": {"name": "Test"}, "expectedStatus": 400},
+    {"name": "Lead create", "method": "POST", "path": "/?resource=public&action=lead", "body": {"name": "Тест", "phone": "+79780000000", "source": "test"}, "expectedStatus": 200, "expectedBody": {"ok": true}, "bodyMatcher": "partial"},
     {"name": "Login empty", "method": "POST", "path": "/?resource=auth&action=login", "body": {}, "expectedStatus": 400},
     {"name": "Login bad", "method": "POST", "path": "/?resource=auth&action=login", "body": {"login": "nonexistent_user_xyz_qq", "password": "x"}, "expectedStatus": 401},
-    {"name": "Media auth required", "method": "GET", "path": "/?resource=media", "expectedStatus": 401}
+    {"name": "Media auth required", "method": "GET", "path": "/?resource=media", "expectedStatus": 401},
+    {"name": "Leads auth required", "method": "GET", "path": "/?resource=leads", "expectedStatus": 401},
+    {"name": "Courses admin auth required", "method": "GET", "path": "/?resource=courses", "expectedStatus": 401}
   ]
 }

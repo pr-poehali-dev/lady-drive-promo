@@ -1,0 +1,1 @@
+UPDATE leads SET status = 'archived', notes = 'Автотест деплоя' WHERE source = 'test';

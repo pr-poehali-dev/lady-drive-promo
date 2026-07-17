@@ -176,6 +176,26 @@ def handler(event: dict, context) -> dict:
                     blocks = [{'block_key': r[0], 'block_name': r[1], 'section': r[2],
                                'content': r[3], 'sort_order': r[4]} for r in rows]
                     return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'blocks': blocks})}
+                if action == 'courses':
+                    cur.execute("""SELECT title, hours, description, icon, badge, sort_order
+                                   FROM courses WHERE enabled = TRUE ORDER BY sort_order, id""")
+                    items = [{'title': r[0], 'hours': r[1], 'description': r[2],
+                              'icon': r[3], 'badge': r[4], 'sort_order': r[5]} for r in cur.fetchall()]
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'courses': items})}
+                if action == 'lead' and method == 'POST':
+                    name = (body.get('name') or '').strip()
+                    phone = (body.get('phone') or '').strip()
+                    if not phone:
+                        return {'statusCode': 400, 'headers': CORS_HEADERS, 'body': json.dumps({'error': 'phone required'})}
+                    cur.execute("""INSERT INTO leads (name, phone, source, utm_source, utm_medium,
+                                        utm_campaign, utm_content, utm_term)
+                                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id""",
+                                (name, phone, body.get('source', 'landing'),
+                                 body.get('utm_source'), body.get('utm_medium'), body.get('utm_campaign'),
+                                 body.get('utm_content'), body.get('utm_term')))
+                    lid = cur.fetchone()[0]
+                    conn.commit()
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'ok': True, 'id': lid})}
                 return {'statusCode': 400, 'headers': CORS_HEADERS, 'body': json.dumps({'error': 'Unknown public action'})}
 
             if resource == 'auth' and action == 'login' and method == 'POST':
@@ -370,6 +390,62 @@ def handler(event: dict, context) -> dict:
                     except Exception as e:
                         print(f'S3 delete failed: {e}')
                     cur.execute("UPDATE media SET s3_key = CONCAT('deleted_', s3_key), url = '' WHERE id = %s", (mid,))
+                    conn.commit()
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'ok': True})}
+
+            if resource == 'leads':
+                if method == 'GET':
+                    status = (params.get('status') or '').strip()
+                    if status:
+                        cur.execute("""SELECT id, name, phone, source, status, notes, created_at
+                                       FROM leads WHERE status = %s ORDER BY created_at DESC LIMIT 500""", (status,))
+                    else:
+                        cur.execute("""SELECT id, name, phone, source, status, notes, created_at
+                                       FROM leads ORDER BY created_at DESC LIMIT 500""")
+                    items = [{'id': r[0], 'name': r[1], 'phone': r[2], 'source': r[3],
+                              'status': r[4], 'notes': r[5],
+                              'created_at': r[6].isoformat() if r[6] else None} for r in cur.fetchall()]
+                    cur.execute("SELECT COUNT(*) FROM leads WHERE status = 'new'")
+                    new_count = cur.fetchone()[0]
+                    return {'statusCode': 200, 'headers': CORS_HEADERS,
+                            'body': json.dumps({'leads': items, 'new_count': new_count})}
+                if method == 'PUT':
+                    cur.execute("UPDATE leads SET status = %s, notes = %s WHERE id = %s",
+                                (body.get('status', 'new'), body.get('notes'), body.get('id')))
+                    conn.commit()
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'ok': True})}
+                if method == 'POST' and action == 'remove':
+                    cur.execute("DELETE FROM leads WHERE id = %s", (body.get('id'),))
+                    conn.commit()
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'ok': True})}
+
+            if resource == 'courses':
+                if method == 'GET':
+                    cur.execute("""SELECT id, title, hours, description, icon, badge, sort_order, enabled, updated_at
+                                   FROM courses ORDER BY sort_order, id""")
+                    items = [{'id': r[0], 'title': r[1], 'hours': r[2], 'description': r[3],
+                              'icon': r[4], 'badge': r[5], 'sort_order': r[6], 'enabled': r[7],
+                              'updated_at': r[8].isoformat() if r[8] else None} for r in cur.fetchall()]
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'courses': items})}
+                if method == 'POST' and action == 'create':
+                    cur.execute("""INSERT INTO courses (title, hours, description, icon, badge, sort_order, enabled)
+                                   VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id""",
+                                (body.get('title'), body.get('hours'), body.get('description'),
+                                 body.get('icon', 'BookOpen'), body.get('badge'),
+                                 body.get('sort_order', 0), body.get('enabled', True)))
+                    nid = cur.fetchone()[0]
+                    conn.commit()
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'id': nid})}
+                if method == 'PUT':
+                    cur.execute("""UPDATE courses SET title=%s, hours=%s, description=%s, icon=%s,
+                                        badge=%s, sort_order=%s, enabled=%s, updated_at=NOW() WHERE id=%s""",
+                                (body.get('title'), body.get('hours'), body.get('description'),
+                                 body.get('icon', 'BookOpen'), body.get('badge'),
+                                 body.get('sort_order', 0), body.get('enabled', True), body.get('id')))
+                    conn.commit()
+                    return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'ok': True})}
+                if method == 'POST' and action == 'remove':
+                    cur.execute("DELETE FROM courses WHERE id = %s", (body.get('id'),))
                     conn.commit()
                     return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': json.dumps({'ok': True})}
 
