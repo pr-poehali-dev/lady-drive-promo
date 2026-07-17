@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
 import PrivacyConsent from "./PrivacyConsent";
-import funcUrls from "../../../backend/func2url.json";
+import { submitLead } from "@/lib/leads";
 
 interface ApplicationModalProps {
   open: boolean;
@@ -24,46 +24,7 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
       toast.error("Подтвердите согласие с политикой конфиденциальности");
       return;
     }
-    const pageParams = new URLSearchParams(window.location.search);
-    const url = new URL("https://gosavtoschool.bitrix24.ru/rest/45768/9nij678yep7wc72c/crm.lead.add.json");
-    url.searchParams.set("FIELDS[STATUS_ID]", "NEW");
-    url.searchParams.set("FIELDS[NAME]", modalName);
-    url.searchParams.set("FIELDS[PHONE][0][VALUE]", modalPhone);
-    url.searchParams.set("FIELDS[PHONE][0][VALUE_TYPE]", "WORK");
-    url.searchParams.set("FIELDS[UF_CRM_1612510024]", "702");
-    url.searchParams.set("FIELDS[SOURCE_ID]", "11");
-    url.searchParams.set("FIELDS[UF_CRM_1611737507]", "646");
-    url.searchParams.set("FIELDS[TITLE]", `${modalName} ${modalPhone}`);
-    const utmFields: Record<string, string> = {
-      "FIELDS[UTM_SOURCE]": "utm_source",
-      "FIELDS[UTM_MEDIUM]": "utm_medium",
-      "FIELDS[UTM_CAMPAIGN]": "utm_campaign",
-      "FIELDS[UTM_CONTENT]": "utm_content",
-      "FIELDS[UTM_TERM]": "utm_term",
-    };
-    for (const [field, param] of Object.entries(utmFields)) {
-      const value = pageParams.get(param);
-      if (value) url.searchParams.set(field, value);
-    }
-    try {
-      await fetch(url.toString());
-    } catch (err) { console.error(err); }
-    try {
-      await fetch(`${funcUrls["admin-auth"]}?resource=public&action=lead`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: modalName,
-          phone: modalPhone,
-          source: "landing",
-          utm_source: pageParams.get("utm_source"),
-          utm_medium: pageParams.get("utm_medium"),
-          utm_campaign: pageParams.get("utm_campaign"),
-          utm_content: pageParams.get("utm_content"),
-          utm_term: pageParams.get("utm_term"),
-        }),
-      });
-    } catch (err) { console.error(err); }
+    await submitLead({ name: modalName, phone: modalPhone, source: "landing_modal" });
     setModalSent(true);
     toast.success("Заявка принята!", {
       description: "Менеджер свяжется с вами в ближайшее время",

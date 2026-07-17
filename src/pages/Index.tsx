@@ -5,6 +5,7 @@ import CoursesSection from "@/components/landing/CoursesSection";
 import CtaFooter from "@/components/landing/CtaFooter";
 import ApplicationModal from "@/components/landing/ApplicationModal";
 import CookieConsent from "@/components/landing/CookieConsent";
+import ExitIntentPopup from "@/components/landing/ExitIntentPopup";
 
 const Index = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -84,6 +85,7 @@ const Index = () => {
       <CtaFooter onOpenModal={() => setModalOpen(true)} />
       <ApplicationModal open={modalOpen} onOpenChange={setModalOpen} />
       <CookieConsent />
+      <ExitIntentPopup />
     </div>
   );
 };
