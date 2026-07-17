@@ -73,8 +73,7 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
             <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
               <div className="bg-primary px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div>
-                  <div className="text-white/70 text-sm mb-1">МКПП или АКПП на выбор</div>
-                  <div className="text-white text-3xl md:text-4xl font-bold">85 900 ₽</div>
+                  <div className="text-white text-3xl md:text-4xl font-bold">69 900 ₽ + ГСМ</div>
                   <div className="text-white/80 mt-1">Практика 72 ч. МКПП и 70 АКПП</div>
                 </div>
                 <Button
@@ -131,19 +130,28 @@ const CoursesSection = ({ onOpenModal }: CoursesSectionProps) => {
                     </button>
                   </div>
 
-                  <div className="mb-2">
-                    {payMode === "parts" ? (
-                      <div className="text-3xl md:text-4xl font-bold text-primary">
-                        22 000 ₽<span className="text-lg font-semibold text-muted-foreground">/мес.</span>
+                  <div className="flex flex-col md:flex-row md:items-center gap-4">
+                    <div>
+                      <div className="mb-2">
+                        {payMode === "parts" ? (
+                          <div className="text-3xl md:text-4xl font-bold text-primary">
+                            22 000 ₽<span className="text-lg font-semibold text-muted-foreground">/мес.</span>
+                          </div>
+                        ) : (
+                          <div className="text-3xl md:text-4xl font-bold text-primary">69 900 ₽</div>
+                        )}
                       </div>
-                    ) : (
-                      <div className="text-3xl md:text-4xl font-bold text-primary">69 900 ₽</div>
-                    )}
-                  </div>
+                      {payMode === "full" && (
+                        <p className="text-sm text-muted-foreground">
+                          +20 000 ₽ ГСМ (топливо)
+                        </p>
+                      )}
+                    </div>
 
-                  <p className="text-sm text-muted-foreground">
-                    +20 000 ₽ ГСМ (топливо)
-                  </p>
+                    <p className="text-xs text-muted-foreground md:border-l md:border-primary/20 md:pl-4 md:max-w-xs leading-relaxed">
+                      13.07.2026 добавляется временный повышенный топливный сбор. До стабилизации цен и свободного доступа топлива
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
