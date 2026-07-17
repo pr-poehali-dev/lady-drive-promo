@@ -4,6 +4,7 @@ import HeroSection from "@/components/landing/HeroSection";
 import CoursesSection from "@/components/landing/CoursesSection";
 import CtaFooter from "@/components/landing/CtaFooter";
 import ApplicationModal from "@/components/landing/ApplicationModal";
+import CookieConsent from "@/components/landing/CookieConsent";
 
 const Index = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -82,6 +83,7 @@ const Index = () => {
       <CoursesSection onOpenModal={() => setModalOpen(true)} />
       <CtaFooter onOpenModal={() => setModalOpen(true)} />
       <ApplicationModal open={modalOpen} onOpenChange={setModalOpen} />
+      <CookieConsent />
     </div>
   );
 };
