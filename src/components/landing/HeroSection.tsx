@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import PrivacyConsent from "./PrivacyConsent";
 
 const HeroSection = () => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [consent, setConsent] = useState(false);
   const [opacity, setOpacity] = useState(1);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -23,6 +25,10 @@ const HeroSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!consent) {
+      toast.error("Подтвердите согласие с политикой конфиденциальности");
+      return;
+    }
     const pageParams = new URLSearchParams(window.location.search);
     const url = new URL("https://gosavtoschool.bitrix24.ru/rest/45768/9nij678yep7wc72c/crm.lead.add.json");
     url.searchParams.set("FIELDS[STATUS_ID]", "NEW");
@@ -53,6 +59,7 @@ const HeroSection = () => {
     });
     setName("");
     setPhone("");
+    setConsent(false);
   };
 
   const form = (
@@ -90,6 +97,7 @@ const HeroSection = () => {
             className="w-full h-9 bg-white/80 text-sm"
           />
         </div>
+        <PrivacyConsent checked={consent} onChange={setConsent} />
         <Button
           type="submit"
           size="sm"
@@ -97,9 +105,6 @@ const HeroSection = () => {
         >
           Получить права красиво
         </Button>
-        <p className="text-xs text-muted-foreground/80 text-center">
-          Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-        </p>
       </form>
     </div>
   );

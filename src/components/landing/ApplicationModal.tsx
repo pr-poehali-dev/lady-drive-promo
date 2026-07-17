@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
+import PrivacyConsent from "./PrivacyConsent";
 import funcUrls from "../../../backend/func2url.json";
 
 interface ApplicationModalProps {
@@ -14,10 +15,15 @@ interface ApplicationModalProps {
 const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
   const [modalName, setModalName] = useState("");
   const [modalPhone, setModalPhone] = useState("");
+  const [modalConsent, setModalConsent] = useState(false);
   const [modalSent, setModalSent] = useState(false);
 
   const handleModalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!modalConsent) {
+      toast.error("Подтвердите согласие с политикой конфиденциальности");
+      return;
+    }
     const pageParams = new URLSearchParams(window.location.search);
     const url = new URL("https://gosavtoschool.bitrix24.ru/rest/45768/9nij678yep7wc72c/crm.lead.add.json");
     url.searchParams.set("FIELDS[STATUS_ID]", "NEW");
@@ -68,6 +74,7 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
       setModalSent(false);
       setModalName("");
       setModalPhone("");
+      setModalConsent(false);
     }, 2000);
   };
 
@@ -114,12 +121,10 @@ const ApplicationModal = ({ open, onOpenChange }: ApplicationModalProps) => {
                 className="w-full h-12"
               />
             </div>
+            <PrivacyConsent checked={modalConsent} onChange={setModalConsent} />
             <Button type="submit" size="lg" className="w-full text-base py-5 bg-primary hover:bg-primary/90">
               Отправить заявку
             </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-            </p>
           </form>
         )}
       </DialogContent>

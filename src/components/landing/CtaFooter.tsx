@@ -6,7 +6,7 @@ interface CtaFooterProps {
   onOpenModal: () => void;
 }
 
-const docContent = {
+export const docContent = {
   privacy: {
     title: "Политика конфиденциальности",
     text: `1. Общие положения
